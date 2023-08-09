@@ -1,0 +1,10 @@
+type: REDIS_STREAM
+  
+host: redis-di-1-load-balancer.re
+port: 13000
+username: 'default'
+password: ${RDI_PWD}
+
+
+
+max-connections: 30

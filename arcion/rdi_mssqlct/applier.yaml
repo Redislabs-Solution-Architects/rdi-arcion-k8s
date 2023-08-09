@@ -1,0 +1,7 @@
+replication-format: JSON_EXTENDED # Allowed values JSON , JSON_EXTENDED. Default is JSON
+snapshot:
+  threads: 16
+
+realtime:
+  threads: 16
+  split-stream: false

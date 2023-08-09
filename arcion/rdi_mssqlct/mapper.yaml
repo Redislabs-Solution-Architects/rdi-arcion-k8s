@@ -1,0 +1,5 @@
+rules:
+  [data:Chinook]:
+    source:
+    - [Chinook, dbo]
+object-name-concat-delimiter: DOT

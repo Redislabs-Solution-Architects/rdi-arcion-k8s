@@ -1,0 +1,16 @@
+allow:
+- catalog: "Chinook"
+  schema: "dbo"
+  types: [TABLE]
+  allow:
+   Album:
+   Artist:
+   Customer:
+   Employee:
+   Genre:
+   Invoice:
+   InvoiceLine:
+   MediaType:
+   Playlist:
+   PlaylistTrack:
+   Track:

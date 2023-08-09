@@ -1,0 +1,56 @@
+liveness-monitor:
+  enable: true
+  inactive-timeout-ms: 900_000
+#   snapshot-extractor-inactive-timeout-ms: 900_000
+#   snapshot-applier-inactive-timeout-ms: 900_000
+#   realtime-extractor-inactive-timeout-ms: 900_000
+#   realtime-applier-inactive-timeout-ms: 900_000
+  min-free-memory-threshold-percent: 5
+  liveness-check-interval-ms: 60_000
+
+#  enable-timezone-conversion: false #If enabled, handles timezone conversion for time related columns.
+
+# This setting relates to Replicant's --clean-job flag (default value is 'true').
+# If set to 'false' only metadata tables from metadata storage will be deleted.
+#cleanup-dst: false
+
+#permission-validation:
+#  enable: false
+
+#schema-validation:
+  #enable: false
+  #dump-schema-mapping: false
+  #error-types: [ALL] #Allowed values are ALL, WARNINGS, COL_CNT_MISMATCH, COL_TYPE_MISMATCH
+  #warning-as-error: false #Consider warnings as errors.
+
+#fencing:
+#  enable-metadata-fence: DDL     #Allowed values are DDL or DML or NONE
+#  enable-dst-fence: DDL          #Allowed values are DDL or DML or NONE
+#  enable-dst-query-fence: DDL    #Allowed values are DDL or DML or NONE
+#  heartbeat-interval-ms: 30_000
+
+#fetch-schema:  #Supported for fetch-schema mode only
+#  skip-tables-on-failure: false
+
+#license-path: '/path/to/license/file'
+#data-dir: '/path/to/data/dir'
+#trace-dir: '/path/to/trace/dir'
+#report-dir: '/path/to/report/dir'q
+trace-level: INFO
+#log-pattern: <log pattern>
+#enable-console-logger: false
+#purge-trace-before-days: 10
+#sensitive-info-trace-dir: '/path/to/sensitive-info/trace/dir'
+#error-trace-dir: '/path/to/error/trace/dir'
+#db-connection-tracing: false # default: false
+
+#dashboard-dump-file:
+  #enable: false
+  #storage: FILE  #Allowed values are FILE or SQLITE
+  #location: "/path/to/dashboard/dump/location"
+  #format: TEXT   #Allowed values are TEXT or JSON
+  #interval-ms: 1000 #in milliseconds
+#host-name-tracing: false
+
+#metadata:
+#  reuse-metadata-tables: false #Allow to reuse existing metadata tables.

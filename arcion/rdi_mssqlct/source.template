@@ -1,0 +1,11 @@
+type: SQLSERVER
+
+host: mssql-service.ms
+port: 1433
+
+username: 'sa'
+password: ${MSSQL_PWD}
+
+extractor: CHANGE
+
+max-connections: 30

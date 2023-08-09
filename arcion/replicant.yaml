@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: replicant
+  labels:
+    app: replicant
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: replicant
+  template:
+    metadata:
+      labels:
+        app: replicant
+    spec:
+      containers:
+      - name: replicant
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "1G"
+          limits:
+            cpu: "500m"
+            memory: "1G"
+        image: ${REPLICANT_IMAGE}
+        imagePullPolicy: Never
+        volumeMounts:
+        - name: config-volume
+          mountPath: /usr/local/replicant-cli/rdi_mssqlct
+        - name: license-volume
+          mountPath: /usr/local/replicant-cli/replicant.lic
+          subPath: replicant.lic
+        command: ["./bin/replicant", "full", "./rdi_mssqlct/source.yaml", "./rdi_mssqlct/target.yaml"]
+        args: [
+          "--general", "./rdi_mssqlct/general.yaml", 
+          "--filter", "./rdi_mssqlct/filter.yaml", 
+          "--extractor", "./rdi_mssqlct/extractor.yaml", 
+          "--applier", "./rdi_mssqlct/applier.yaml", 
+          "--map", "./rdi_mssqlct/mapper.yaml",
+          "--id", "sqlserver", 
+          "--replace-existing", 
+          "--overwrite"]
+      volumes:
+      - name: license-volume
+        configMap:
+          name: replicant-license
+          optional: false
+      - name: config-volume
+        configMap:
+          name: replicant-config
+          optional: false
