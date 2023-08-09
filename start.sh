@@ -98,5 +98,5 @@ kubectl rollout status deployment replicant
 echo -e "\n*** Build Complete ***"
 echo "K8S Cluster env:  kubectl get nodes"
 echo "Redis K8S env:  kubectl -n re get all"
-echo "MSSQL sqlcmd:  kubectl -n mssql exec mssql-service -- /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P $MSSQL_PWD"
+echo "MSSQL sqlcmd:  kubectl -n ms exec -it mssql-0 -- /opt/mssql-tools/bin/sqlcmd -U sa -P $MSSQL_PWD"
 echo "RDI status:  kubectl -n re exec -it rdi-cli -- redis-di status --rdi-host redis-di-1-load-balancer --rdi-port $RDI_PORT --rdi-password $RDI_PWD"
